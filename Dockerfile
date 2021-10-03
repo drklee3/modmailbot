@@ -7,9 +7,9 @@ WORKDIR /usr/modmailbot
 COPY package.json package-lock.json ./
 RUN npm ci --production
 
-RUN mkdir ./db \
-  && mkdir ./logs \
-  && mkdir ./attachments
+RUN mkdir -p /data/db \
+  && mkdir /data/logs \
+  && mkdir /data/attachments
 
 COPY src ./src
 COPY knexfile.js ./knexfile.js
